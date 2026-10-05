@@ -1,0 +1,85 @@
+# All parameters of the analysis live in this one file, so every run is documented
+# and can be repeated exactly. Paths are relative to the repository root.
+
+seed: 42
+
+data:
+  # The CFPB no longer publishes complaint narratives (checked 5 October 2026: neither
+  # the bulk download nor the API contains the text column any more). The text therefore
+  # comes from an archived copy of the official database, pinned to an exact revision.
+  snapshot:
+    hf_dataset: davidheineman/consumer-finance-complaints-large
+    hf_revision: 44cfa170a402e254407470275ce05d7dcaccde30   # snapshot of 2 January 2025
+    files: 11                                                  # train-000NN-of-00011.parquet
+    dir: data/raw/cfpb_snapshot_2025-01-02
+  # The current official download (metadata only) is used to verify the archived copy.
+  official:
+    url: https://files.consumerfinance.gov/ccdb/complaints.csv.zip
+    zip: data/raw/complaints.csv.zip
+    chunksize: 500000
+  # The most recent twelve complete months for which narratives exist.
+  date_min: "2024-01-01"
+  date_max: "2024-12-31"
+  # Complaints drawn at random from the window (deterministic, see pipeline/data.py).
+  sample_size: 60000
+  # Two narratives count as near-duplicates above this cosine similarity of their
+  # TF-IDF vectors (after removing redactions, digits and punctuation).
+  near_duplicate_threshold: 0.9
+
+preprocessing:
+  spacy_model: en_core_web_sm
+  n_process: 4
+  batch_size: 200
+  # Content words carry the topics; pronouns, adverbs, numbers etc. are dropped.
+  keep_pos: [NOUN, PROPN, VERB, ADJ]
+  min_token_length: 3
+  # The concept planned 20. That removed 27% of the unique narratives, unevenly: 30% of
+  # credit-reporting and debt-collection complaints but 9% of mortgage complaints, which
+  # would distort topic prevalence. Most removed texts had 10-19 content words.
+  min_doc_tokens: 10
+  # Frequent in complaints but carry no topic (applied to lemmas, in addition to NLTK's list).
+  domain_stopwords:
+    [tell, say, ask, call, get, would, could, also, even, still, one, since, want, know,
+     make, go, take, come, give, see, need, try, use, put, keep, let, look, find,
+     please, thank, regard, sincerely, dear, hello, name, date, day, time, today, year,
+     month, week, number, etc, mr, mrs, ms, xxxx]
+  # Detects frequent two-word expressions such as credit_report or identity_theft.
+  phrases:
+    min_count: 20
+    threshold: 10
+
+vectorization:
+  # Vocabulary shared by TF-IDF and LDA.
+  no_below: 10        # drop terms in fewer than 10 documents
+  no_above: 0.5       # drop terms in more than half of all documents
+  keep_n: 20000
+  word2vec:
+    vector_size: 100
+    window: 5
+    min_count: 10
+    sg: 1             # skip-gram
+    epochs: 10
+  comparison:
+    probe_words: [mortgage, fraud, dispute, collection, refund, identity_theft]
+    eval_docs_per_product: 400
+    neighbours: 10
+
+topics:
+  k_min: 5
+  k_max: 20
+  top_n_words: 10
+  # "auto" picks the k with the highest C_v coherence; an integer overrides it.
+  # LDA: the coherence curve is flat (k = 5: 0.555, k = 13: 0.553). Reading the topics at
+  # k = 5 showed one catch-all topic holding 38% of documents (cards, banks and loans mixed),
+  # which is useless for decision-makers. k = 13 is the best-scoring alternative.
+  k_lda: 13
+  k_nmf: auto
+  coherence_reference_docs: 20000
+  lda:
+    passes_sweep: 4
+    passes_final: 12
+    iterations: 100
+    workers: 6
+  nmf:
+    max_iter: 600
+  stability_seeds: [7, 21, 84]

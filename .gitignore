@@ -1,0 +1,10 @@
+# environment
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# data: downloaded by run.py (raw) or recreated by the pipeline (interim)
+data/raw/
+data/interim/
