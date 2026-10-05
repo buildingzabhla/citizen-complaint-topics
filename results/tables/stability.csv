@@ -1,0 +1,7 @@
+model,seed,matched_jaccard
+LDA,7,0.473
+NMF,7,0.715
+LDA,21,0.454
+NMF,21,0.715
+LDA,84,0.506
+NMF,84,0.715

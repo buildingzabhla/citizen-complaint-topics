@@ -1,0 +1,3 @@
+representation,dimensions,non_zero_share,memory_mb,build_seconds,interpretable_dimensions,neighbour_agreement_macro
+TF-IDF (bag of words),5653,0.00729,13.3,0.9,yes (one per term),0.574
+Word2Vec (mean of word vectors),100,1.0,10.7,77.5,no,0.619

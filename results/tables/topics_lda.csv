@@ -1,0 +1,14 @@
+topic,unique_documents,unique_share,share_with_duplicates,mean_weight,top_words,c_v
+1,5161,0.1931,0.0954,0.1482,"bank, card, check, receive, money, email, send, transaction, phone, fund",0.665
+5,3397,0.1271,0.1676,0.1131,"information, dispute, fcra, inaccurate, consumer, request, provide, verify, reporting_act, investigation",0.627
+8,3258,0.1219,0.1424,0.1094,"inquiry, fraudulent, remove, item, identity_theft, theft, information, file, open, address",0.572
+11,2946,0.1102,0.0752,0.0983,"debt, collection, provide, request, letter, proof, dispute, receive, send, validation",0.573
+4,2226,0.0833,0.1127,0.0864,"request, issue, matter, financial, action, complaint, provide, address, concern, write",0.512
+6,2017,0.0755,0.0403,0.0772,"payment, pay, amount, charge, card, balance, interest, fee, statement, receive",0.646
+0,2005,0.075,0.146,0.0708,"consumer, information, usc, reporting_agency, section, state, furnish, violation, code, privacy",0.672
+9,1834,0.0686,0.0697,0.08,"balance, late_payment, open, payment, charge, status, update, remove, inaccurate, correct",0.62
+7,1501,0.0562,0.0368,0.0695,"pay, company, work, help, car, send, money, contact, state, bill",0.595
+2,1034,0.0387,0.0691,0.061,"company, send, experian, remove, information, letter, file, show, contact, complaint",0.472
+12,576,0.0216,0.0149,0.0346,"loan, mortgage, application, lender, insurance, apply, state, document, home, vehicle",0.58
+3,494,0.0185,0.0168,0.0315,"consumer, information, person, notice, act, provide, party, record, code, require",0.497
+10,278,0.0104,0.0131,0.02,"consumer, delete, permissible_purpose, claim, reporting, law, provide, proof, violation, purpose",0.493

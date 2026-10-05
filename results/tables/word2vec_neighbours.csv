@@ -1,0 +1,7 @@
+word,nearest_words
+mortgage,"specialized_loan (0.72), mortage (0.70), crosscountry (0.70), homeowners (0.69), haf (0.69), nationstar (0.69)"
+fraud,"detection (0.61), fraudulent_activity (0.60), idenity (0.60), mellon (0.59), thief (0.58), perpetrator (0.58)"
+dispute,"disputed (0.67), disputes (0.63), reinvestigation (0.59), investigation (0.58), transuion (0.58), detailed_description (0.57)"
+collection,"attempt_collect (0.64), allied (0.63), aargon (0.62), collections (0.62), wakefield_associates (0.61), aged (0.59)"
+refund,"refunded (0.76), reimburse (0.75), overpayment (0.64), morgan (0.64), backdate (0.63), chargeback (0.63)"
+identity_theft,"theft (0.72), theft_affidavit (0.67), victim_identity (0.64), idenity (0.62), identity (0.61), criminal_complaint (0.60)"

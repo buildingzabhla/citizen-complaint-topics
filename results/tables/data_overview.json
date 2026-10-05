@@ -1,0 +1,22 @@
+{
+  "counts": {
+    "rows_in_snapshot": 7179332,
+    "rows_in_window": 2671440,
+    "with_narrative": 680980,
+    "sample": 60000,
+    "duplicates_removed": 30462,
+    "unique_narratives": 29538,
+    "date_min": "2024-01-01",
+    "date_max": "2024-12-31",
+    "seed": 42
+  },
+  "verification": {
+    "sample": 60000,
+    "found_in_official_file": 59834,
+    "date_matches": 1.0,
+    "issue_matches": 1.0,
+    "company_matches": 0.9904235050305846,
+    "product_matches": 1.0,
+    "product_differences": []
+  }
+}

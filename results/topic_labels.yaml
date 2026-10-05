@@ -1,0 +1,44 @@
+# Human labels for the topics. They are an interpretation of each topic's top words
+# (results/tables/topics_*.csv) and of a reading of example complaints, not model output.
+# Keys are the topic numbers the models produced.
+
+nmf:
+  0: Inaccurate credit-report data and disputes
+  1: "Communication: letters, e-mails, no reply"
+  2: Unauthorised hard inquiries
+  3: "Debt collection: proof of the debt"
+  4: Privacy and consumer-law violations
+  5: Loan and mortgage payments, late payments
+  6: Wrong balances and account status
+  7: "Identity theft: fraudulent accounts"
+  8: "Credit cards: charges, fees, applications"
+  9: "Bank accounts: deposits, transfers, closures"
+  10: Legal template letters citing the FCRA
+
+lda:
+  0: Legal template letters citing the FCRA
+  1: Bank and card transactions
+  2: Letters to credit bureaus asking for removal
+  3: Legal notices and third-party records
+  4: Generic requests for resolution
+  5: Inaccurate credit-report data and disputes
+  6: Payments, interest and fees
+  7: Bills, car payments and requests for help
+  8: Identity theft, fraudulent entries, inquiries
+  9: Late payments and wrong balances
+  10: Permissible-purpose claims
+  11: "Debt collection: proof of the debt"
+  12: Loan and mortgage applications
+
+kmeans_word2vec:
+  0: Legal template letters citing the FCRA
+  1: Cards, scores and applications (mixed)
+  2: Template on distress and resolution
+  3: "Debt collection: proof of the debt"
+  4: Bank accounts and transactions
+  5: Identity theft and hard inquiries
+  6: Privacy and opt-out rights
+  7: Mortgages, car loans and property
+  8: Inaccurate credit-report data and disputes
+  9: Payments, interest and fees
+  10: Wrong balances, late payments, billing errors

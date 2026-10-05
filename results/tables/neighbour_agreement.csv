@@ -1,0 +1,11 @@
+product,tfidf,word2vec
+Checking/savings,0.496,0.538
+Credit card,0.464,0.526
+Credit reporting,0.557,0.614
+Debt collection,0.484,0.56
+Money transfer,0.56,0.595
+Mortgage,0.648,0.733
+Student loan,0.82,0.816
+Vehicle loan,0.567,0.572
+Macro average,0.574,0.619
+Random baseline,0.125,0.125

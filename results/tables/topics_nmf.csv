@@ -1,0 +1,12 @@
+topic,unique_documents,unique_share,share_with_duplicates,mean_weight,top_words,c_v
+9,3507,0.1312,0.0718,0.1281,"bank, check, money, fund, chase, deposit, transaction, close, transfer, claim",0.691
+1,3255,0.1218,0.1235,0.1347,"company, send, letter, receive, email, contact, state, mail, response, address",0.602
+0,3218,0.1204,0.1752,0.1279,"information, dispute, inaccurate, fcra, request, incorrect, provide, investigation, inaccuracy, correct",0.638
+5,3180,0.119,0.1057,0.1067,"payment, loan, pay, late_payment, due, mortgage, amount, late, show, interest",0.631
+7,2863,0.1071,0.1286,0.1034,"fraudulent, remove, theft, item, identity_theft, open, victim_identity, block, file, ftc",0.72
+3,2652,0.0992,0.0607,0.0859,"debt, collection, validation, provide, owe, request, debt_collector, original_creditor, agency, proof",0.661
+8,2279,0.0853,0.0444,0.0816,"card, charge, purchase, close, capital, pay, fee, interest, fraud, new",0.554
+4,1898,0.071,0.0907,0.0773,"consumer, information, reporting_agency, code, relate, usc, privacy, violation, law, financial_institution",0.691
+2,1393,0.0521,0.057,0.0486,"inquiry, authorize, remove, unauthorized_inquiry, unauthorized, hard_inquiry, follow, list, removal, unauthorized_hard",0.635
+6,1258,0.0471,0.0324,0.0508,"balance, open, original_creditor, status, update, owe, item, balance_owed, show, close",0.555
+10,1224,0.0458,0.11,0.0552,"section, usc, right_privacy, state, write_instruction, furnish, reporting_agency, accordance_fair, violate_right, reporting_act",0.772
