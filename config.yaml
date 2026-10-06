@@ -69,17 +69,14 @@ topics:
   k_max: 20
   top_n_words: 10
   # "auto" picks the k with the highest C_v coherence; an integer overrides it.
-  # LDA: the coherence curve is flat (k = 5: 0.555, k = 13: 0.553). Reading the topics at
-  # k = 5 showed one catch-all topic holding 38% of documents (cards, banks and loans mixed),
-  # which is useless for decision-makers. k = 13 is the best-scoring alternative.
-  k_lda: 13
+  # Both automatic choices were checked by reading the topics (results/topic_labels.yaml).
+  k_lda: auto
   k_nmf: auto
   coherence_reference_docs: 20000
   lda:
     passes_sweep: 4
     passes_final: 12
     iterations: 100
-    workers: 6
   nmf:
     max_iter: 600
   stability_seeds: [7, 21, 84]

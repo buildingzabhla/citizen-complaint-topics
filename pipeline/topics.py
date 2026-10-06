@@ -21,7 +21,7 @@ from __future__ import annotations
 
 import numpy as np
 import pandas as pd
-from gensim.models import CoherenceModel, LdaModel, LdaMulticore
+from gensim.models import CoherenceModel, LdaModel
 from scipy.optimize import linear_sum_assignment
 from sklearn.cluster import KMeans
 from sklearn.decomposition import NMF
@@ -31,18 +31,16 @@ from .utils import INTERIM, TABLES, exists, load, log, save, timed
 
 
 # --------------------------------------------------------------------------- models
-def fit_lda(bow, dictionary, k: int, seed: int, passes: int, cfg: dict,
-            multicore: bool = False):
-    """Multicore LDA is fast but varies slightly between runs (two runs with the same seed
-    shared 98.6% of their top words), so it is only used for the coherence sweep. The final
-    model and the stability refits use single-process LDA, which is fully reproducible."""
-    lda_cfg = cfg["topics"]["lda"]
-    common = dict(corpus=bow, id2word=dictionary, num_topics=k, passes=passes,
-                  iterations=lda_cfg["iterations"], chunksize=2000, random_state=seed,
-                  eval_every=None)
-    if multicore:
-        return LdaMulticore(workers=lda_cfg["workers"], **common)
-    return LdaModel(**common)
+def fit_lda(bow, dictionary, k: int, seed: int, passes: int, cfg: dict) -> LdaModel:
+    """Single-process LDA, which gives identical results for the same seed.
+
+    Multicore LDA was tried first. It is not reproducible: two runs with the same seed shared
+    98.6% of their top words, and in the coherence sweep that noise (up to 0.018 C_v) was as
+    large as the differences between values of k, so the best k changed between runs.
+    """
+    return LdaModel(corpus=bow, id2word=dictionary, num_topics=k, passes=passes,
+                    iterations=cfg["topics"]["lda"]["iterations"], chunksize=2000,
+                    random_state=seed, eval_every=None)
 
 
 def lda_words(model, n: int) -> list:
@@ -136,7 +134,7 @@ def run(cfg: dict) -> None:
     signature = {"seed": seed, "k_min": tc["k_min"], "k_max": tc["k_max"], "n_words": n_words,
                  "lda": tc["lda"]["passes_sweep"], "iterations": tc["lda"]["iterations"],
                  "nmf": tc["nmf"]["max_iter"], "reference": ref_n, "docs": len(texts),
-                 "vocab": len(vocab)}
+                 "vocab": len(vocab), "lda_implementation": "single-process"}
     cached = load("sweep.pkl") if exists("sweep.pkl") else None
     if cached and cached["signature"] == signature:
         sweep = cached["sweep"]
@@ -149,8 +147,7 @@ def run(cfg: dict) -> None:
                 w = nmf_words(nmf, vocab, n_words)
                 rows.append({"model": "NMF", "k": k, "c_v": coherence(w, reference, dictionary)[0],
                              "diversity": diversity(nmf_words(nmf, vocab, 25))})
-                lda = fit_lda(bow, dictionary, k, seed, tc["lda"]["passes_sweep"], cfg,
-                              multicore=True)
+                lda = fit_lda(bow, dictionary, k, seed, tc["lda"]["passes_sweep"], cfg)
                 w = lda_words(lda, n_words)
                 rows.append({"model": "LDA", "k": k, "c_v": coherence(w, reference, dictionary)[0],
                              "diversity": diversity(lda_words(lda, 25))})

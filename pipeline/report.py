@@ -76,9 +76,8 @@ def fig_coherence(k_lda: int, k_nmf: int) -> None:
     lda = s[s["model"] == "LDA"]
     k_best = int(lda.loc[lda["c_v"].idxmax(), "k"])
     if k_best != k_lda:
-        fig.text(0.01, -0.04, f"LDA scores highest at k = {k_best}, but those topics include a catch-all; "
-                 f"k = {k_lda} was chosen after reading the topics (see config.yaml).",
-                 fontsize=8.5, color="#555555")
+        fig.text(0.01, -0.04, f"LDA scores highest at k = {k_best}; k = {k_lda} was set in config.yaml "
+                 "after reading the topics.", fontsize=8.5, color="#555555")
     _save(fig, "coherence_by_k.png")
 
 
