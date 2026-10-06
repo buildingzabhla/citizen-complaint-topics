@@ -17,18 +17,22 @@ nmf:
 
 lda:
   0: Legal template letters citing the FCRA
-  1: Bank and card transactions
-  2: Letters to credit bureaus asking for removal
+  1: Card transactions and contacting the bank
+  2: Letters sent and proof requested
   3: Legal notices and third-party records
   4: Generic requests for resolution
-  5: Inaccurate credit-report data and disputes
+  5: Disputed items at the credit bureaus
   6: Payments, interest and fees
-  7: Bills, car payments and requests for help
+  7: Car loans, credit scores, asking for help
   8: Identity theft, fraudulent entries, inquiries
-  9: Late payments and wrong balances
-  10: Permissible-purpose claims
-  11: "Debt collection: proof of the debt"
-  12: Loan and mortgage applications
+  9: Account status and balances
+  10: Bankruptcy and permissible-purpose claims
+  11: "Rights under the FCRA: dispute requests"
+  12: Bank deposits, holds and transfers
+  13: Insurance, escrow and refunds
+  14: Inaccurate data and late payments
+  15: Debt collection and contracts
+  16: Loan and mortgage applications
 
 kmeans_word2vec:
   0: Legal template letters citing the FCRA

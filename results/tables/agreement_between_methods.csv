@@ -1,4 +1,4 @@
 ,LDA,NMF,k-means on Word2Vec
-LDA,1.0,0.343,0.517
-NMF,0.343,1.0,0.369
-k-means on Word2Vec,0.517,0.369,1.0
+LDA,1.0,0.326,0.467
+NMF,0.326,1.0,0.368
+k-means on Word2Vec,0.467,0.368,1.0

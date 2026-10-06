@@ -43,7 +43,7 @@ Nearest words in the Word2Vec space:
 
 ## 3. Choosing the number of topics
 
-Chosen: **LDA k = 13**, **NMF k = 11**.
+Chosen: **LDA k = 17**, **NMF k = 11**.
 
 ![Coherence by k](figures/coherence_by_k.png)
 
@@ -71,23 +71,27 @@ Chosen: **LDA k = 13**, **NMF k = 11**.
 
 ![NMF topics by product](figures/nmf_topic_by_product.png)
 
-### LDA (k = 13)
+### LDA (k = 17)
 
 | Rank | Topic | Top words | Unique narratives | With copies | C_v |
 |---|---|---|---|---|---|
-| 1 | Bank and card transactions | bank, card, check, receive, money, email, send, transaction, phone, fund | 19.3% | 9.5% | 0.665 |
-| 2 | Inaccurate credit-report data and disputes | information, dispute, fcra, inaccurate, consumer, request, provide, verify, reporting_act, investigation | 12.7% | 16.8% | 0.627 |
-| 3 | Identity theft, fraudulent entries, inquiries | inquiry, fraudulent, remove, item, identity_theft, theft, information, file, open, address | 12.2% | 14.2% | 0.572 |
-| 4 | Debt collection: proof of the debt | debt, collection, provide, request, letter, proof, dispute, receive, send, validation | 11.0% | 7.5% | 0.573 |
-| 5 | Generic requests for resolution | request, issue, matter, financial, action, complaint, provide, address, concern, write | 8.3% | 11.3% | 0.512 |
-| 6 | Payments, interest and fees | payment, pay, amount, charge, card, balance, interest, fee, statement, receive | 7.5% | 4.0% | 0.646 |
-| 7 | Legal template letters citing the FCRA | consumer, information, usc, reporting_agency, section, state, furnish, violation, code, privacy | 7.5% | 14.6% | 0.672 |
-| 8 | Late payments and wrong balances | balance, late_payment, open, payment, charge, status, update, remove, inaccurate, correct | 6.9% | 7.0% | 0.62 |
-| 9 | Bills, car payments and requests for help | pay, company, work, help, car, send, money, contact, state, bill | 5.6% | 3.7% | 0.595 |
-| 10 | Letters to credit bureaus asking for removal | company, send, experian, remove, information, letter, file, show, contact, complaint | 3.9% | 6.9% | 0.472 |
-| 11 | Loan and mortgage applications | loan, mortgage, application, lender, insurance, apply, state, document, home, vehicle | 2.2% | 1.5% | 0.58 |
-| 12 | Legal notices and third-party records | consumer, information, person, notice, act, provide, party, record, code, require | 1.8% | 1.7% | 0.497 |
-| 13 | Permissible-purpose claims | consumer, delete, permissible_purpose, claim, reporting, law, provide, proof, violation, purpose | 1.0% | 1.3% | 0.493 |
+| 1 | Card transactions and contacting the bank | card, receive, phone, email, transaction, contact, send, chase, claim, money | 17.7% | 8.8% | 0.606 |
+| 2 | Identity theft, fraudulent entries, inquiries | inquiry, remove, fraudulent, identity_theft, theft, information, file, item, authorize, block | 12.3% | 13.9% | 0.617 |
+| 3 | Inaccurate data and late payments | information, inaccurate, late_payment, dispute, update, experian, correct, incorrect, remove, reporting | 10.3% | 13.7% | 0.639 |
+| 4 | Rights under the FCRA: dispute requests | request, provide, fcra, fair, dispute, violation, information, right, require, law | 9.2% | 8.9% | 0.606 |
+| 5 | Legal template letters citing the FCRA | consumer, information, usc, reporting_agency, section, state, furnish, violation, privacy, code | 7.2% | 14.4% | 0.672 |
+| 6 | Payments, interest and fees | payment, pay, amount, interest, statement, due, fee, charge, capital, balance | 6.7% | 4.0% | 0.65 |
+| 7 | Letters sent and proof requested | send, letter, company, receive, request, proof, information, dispute, provide, state | 6.6% | 8.4% | 0.494 |
+| 8 | Generic requests for resolution | issue, financial, matter, request, address, concern, action, resolution, complaint, provide | 6.1% | 10.0% | 0.554 |
+| 9 | Debt collection and contracts | debt, collection, contract, owe, debt_collector, state, company, amount, pay, agency | 5.8% | 3.4% | 0.555 |
+| 10 | Car loans, credit scores, asking for help | car, company, help, work, score, vehicle, pay, point, cause, move | 4.9% | 3.5% | 0.571 |
+| 11 | Disputed items at the credit bureaus | information, consumer, dispute, item, transunion, reporting_agency, delete, inaccurate, verify, accuracy | 4.0% | 5.1% | 0.665 |
+| 12 | Legal notices and third-party records | consumer, information, notice, act, provide, person, party, record, transaction, include | 1.8% | 1.1% | 0.466 |
+| 13 | Bank deposits, holds and transfers | bank, check, fund, money, deposit, bank_america, transfer, hold, cash, close | 1.8% | 0.9% | 0.771 |
+| 14 | Loan and mortgage applications | loan, mortgage, application, apply, lender, student_loan, process, home, borrower, approve | 1.7% | 0.9% | 0.693 |
+| 15 | Account status and balances | balance, open, status, charge, payment, last, close, closed, amount, type | 1.7% | 1.0% | 0.712 |
+| 16 | Insurance, escrow and refunds | charge, insurance, cancel, form, amount, document, refund, escrow, check, tax | 1.3% | 1.1% | 0.585 |
+| 17 | Bankruptcy and permissible-purpose claims | consumer, bankruptcy, permissible_purpose, delete, purpose, law, reporting_agency, violation, fair, bureau | 0.7% | 1.0% | 0.581 |
 
 ![LDA prevalence](figures/prevalence_lda.png)
 
@@ -97,31 +101,31 @@ An interactive view of the LDA model: [`lda_visualisation.html`](lda_visualisati
 
 | Rank | Topic | Top words | Unique narratives | With copies | C_v |
 |---|---|---|---|---|---|
-| 1 | Inaccurate credit-report data and disputes | information, fcra, inaccurate, dispute, fair, request, verify, reporting_act, incorrect, investigation | 15.5% | 20.2% | 0.658 |
+| 1 | Inaccurate credit-report data and disputes | information, fcra, inaccurate, dispute, fair, request, verify, reporting_act, incorrect, item | 15.4% | 20.2% | 0.649 |
 | 2 | Bank accounts and transactions | bank, money, card, check, fund, transaction, chase, deposit, close, transfer | 14.7% | 7.2% | 0.723 |
 | 3 | Identity theft and hard inquiries | inquiry, fraudulent, remove, theft, authorize, victim_identity, identity_theft, hard_inquiry, ftc, result_identity | 10.4% | 12.8% | 0.73 |
 | 4 | Cards, scores and applications (mixed) | card, company, score, open, send, contact, letter, fraud, police, apply | 9.8% | 9.7% | 0.45 |
-| 5 | Mortgages, car loans and property | loan, mortgage, pay, car, vehicle, home, work, insurance, payment, property | 8.8% | 4.4% | 0.676 |
+| 5 | Mortgages, car loans and property | loan, mortgage, pay, car, vehicle, home, work, insurance, payment, property | 8.9% | 4.4% | 0.676 |
 | 6 | Wrong balances, late payments, billing errors | balance, late_payment, update, open, payment, show, status, late, charge, billing_error | 7.6% | 6.5% | 0.651 |
 | 7 | Debt collection: proof of the debt | debt, collection, validation, debt_collector, owe, proof, provide, contract, request, allege_debt | 7.3% | 4.4% | 0.688 |
-| 8 | Payments, interest and fees | payment, pay, loan, interest, charge, balance, fee, amount, due, late_fee | 7.1% | 3.8% | 0.711 |
-| 9 | Legal template letters citing the FCRA | consumer, reporting_agency, section, information, usc, furnish, right_privacy, state, write_instruction, relate | 6.7% | 15.4% | 0.742 |
+| 8 | Payments, interest and fees | payment, pay, interest, loan, charge, balance, fee, amount, due, late_fee | 7.0% | 3.8% | 0.711 |
+| 9 | Legal template letters citing the FCRA | consumer, reporting_agency, section, information, usc, furnish, right_privacy, state, write_instruction, relate | 6.8% | 15.4% | 0.742 |
 | 10 | Template on distress and resolution | issue, financial, matter, cause_significant, fraudulent, distress, inaccuracy, error, resolution, address | 6.6% | 11.1% | 0.579 |
-| 11 | Privacy and opt-out rights | consumer, privacy, information, violation, usc, opt, act, law, right, code | 5.5% | 4.6% | 0.648 |
+| 11 | Privacy and opt-out rights | consumer, privacy, information, violation, usc, opt, act, law, right, code | 5.5% | 4.5% | 0.648 |
 
 ## 5. Quality and agreement
 
 | method | topics | mean_c_v | diversity_top10 | stability_jaccard |
 |---|---|---|---|---|
-| LDA | 13 | 0.579 | 0.692 | 0.478 |
+| LDA | 17 | 0.614 | 0.729 | 0.397 |
 | NMF | 11 | 0.65 | 0.855 | 0.715 |
-| k-means on Word2Vec | 11 | 0.66 | 0.873 | nan |
+| k-means on Word2Vec | 11 | 0.659 | 0.873 | nan |
 
 Agreement of each method's topic assignment with the CFPB labels (never seen by the models):
 
 | method | topics | nmi_product | ari_product | nmi_issue |
 |---|---|---|---|---|
-| LDA | 13 | 0.231 | 0.07 | 0.214 |
+| LDA | 17 | 0.202 | 0.054 | 0.198 |
 | NMF | 11 | 0.228 | 0.062 | 0.204 |
 | k-means on Word2Vec | 11 | 0.277 | 0.101 | 0.252 |
 
@@ -129,6 +133,6 @@ Agreement between the methods (NMI):
 
 | method | LDA | NMF | k-means on Word2Vec |
 |---|---|---|---|
-| LDA | 1.0 | 0.343 | 0.517 |
-| NMF | 0.343 | 1.0 | 0.369 |
-| k-means on Word2Vec | 0.517 | 0.369 | 1.0 |
+| LDA | 1.0 | 0.326 | 0.467 |
+| NMF | 0.326 | 1.0 | 0.368 |
+| k-means on Word2Vec | 0.467 | 0.368 | 1.0 |

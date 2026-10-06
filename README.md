@@ -42,9 +42,9 @@ often each is a complaint's dominant topic:
   e-mails, no reply" is about companies that do not answer, and it spans credit reporting
   (56%) and debt collection (19%). For an organisation that receives complaints, this is the
   most directly actionable result.
-* **NMF gave the clearest topics.** NMF reached C_v coherence 0.65 against LDA's 0.58, its
-  topics overlap less (diversity 0.86 vs 0.69), and they come back far more reliably with
-  other random seeds (0.72 vs 0.48).
+* **NMF gave the clearest topics.** NMF reached C_v coherence 0.65 against LDA's 0.61, its
+  topics overlap less (diversity 0.86 vs 0.73), and they come back far more reliably with
+  other random seeds (0.72 vs 0.40).
 * **Both representations capture topical structure.** A complaint's 10 nearest neighbours
   share its CFPB product 57% (TF-IDF) and 62% (Word2Vec) of the time, against 12.5% by chance.
 
@@ -89,7 +89,7 @@ cd citizen-complaint-topics
 python3 -m venv .venv
 source .venv/bin/activate            # Windows: .venv\Scripts\activate
 pip install -r requirements.txt      # includes the spaCy English model
-python run.py                        # all steps, about 20-25 minutes
+python run.py                        # all steps, about 20 minutes
 python -m pytest                     # unit tests
 ```
 
@@ -105,16 +105,17 @@ python run.py --steps topics,evaluate,report
 
 All parameters (time window, sample size, seed, thresholds, range of k, model settings) are in
 [`config.yaml`](config.yaml). With the same configuration every result is identical on every
-run. The only exception is the coherence sweep, which uses multicore LDA for speed: two sweeps
-with the same seed share about 99% of their top words, which does not change the ranking of k.
-The final LDA model is fitted single-process and is fully reproducible.
+run. This was verified by running the whole pipeline again from a fresh clone: only the
+timings and the internal element IDs of the pyLDAvis page differed. LDA is fitted
+single-process for this reason. Multicore LDA was tried first and varied between runs enough
+to change which number of topics scored best.
 
 | Step | Runtime on the reference machine |
 |---|---|
 | data | 1.5 min (plus the downloads on the first run) |
 | preprocess | 2.6 min |
 | vectorize | 1.4 min |
-| topics | about 15 min (the coherence sweep is cached and reused afterwards) |
+| topics | about 14 min (the coherence sweep is cached and reused afterwards) |
 | evaluate and report | under 1 min |
 
 ## Repository structure
@@ -152,16 +153,17 @@ was more interesting: half of all narratives are copies, which is exactly the
 
 **Choices that changed during development.** The 20-token minimum from the concept removed
 27% of the documents, and removed them unevenly between products, so it was lowered to 10.
-For LDA, the number of topics with the highest coherence (k = 5) produced a catch-all topic
-holding 38% of the documents. Because the coherence curve is almost flat, k = 13 (0.553 vs
-0.555) was chosen after reading the topics. Both changes are recorded in `config.yaml` and
-explained in [`docs/WALKTHROUGH.md`](docs/WALKTHROUGH.md).
+LDA was first fitted with gensim's multicore implementation, which turned out not to be
+reproducible: a second run moved its coherence scores by up to 0.018 and changed the best
+number of topics from 5 to 15. All LDA models are therefore fitted single-process. With that,
+coherence peaks at k = 17 (C_v 0.606), and reading the 17 topics confirmed the choice. Both
+changes are explained in [`docs/WALKTHROUGH.md`](docs/WALKTHROUGH.md).
 
 **Models.** NMF produced sharper, more distinct and more stable topics than LDA on these
 short, repetitive texts, so its topics are the main result. k-means on Word2Vec vectors
-finds a similar structure (NMI 0.37 with NMF, 0.52 with LDA) and scores well on coherence,
+finds a similar structure (NMI 0.37 with NMF, 0.47 with LDA) and scores well on coherence,
 but gives every complaint exactly one cluster. Topics agree only moderately with the CFPB's
-product labels (NMI 0.23–0.28). That is expected: several topics, such as unanswered letters
+product labels (NMI 0.20–0.28). That is expected: several topics, such as unanswered letters
 or identity theft, cut across products.
 
 **Limitations.** The texts are US financial complaints, not municipal ones: the method carries

@@ -170,6 +170,7 @@ Unsupervised models have no accuracy score, so several signals are combined:
 | minimum 20 tokens per document | minimum 10 tokens | 20 removed 27% of documents and distorted prevalence between products |
 | stop words, then lemmatisation | lemmatisation, then stop words; content words only | catches every inflected form; focuses topics on content words |
 | TF-IDF as input for the topic models | LDA on counts, NMF on TF-IDF | LDA is a model of word counts |
+| (not specified) | single-process LDA | multicore LDA was not reproducible: in a second run its coherence scores moved by up to 0.018 and the best k changed from 5 to 15 |
 
 ---
 

@@ -1,12 +1,12 @@
 topic,unique_documents,unique_share,share_with_duplicates,mean_weight,top_words,c_v
-8,4131,0.1546,0.2022,0.1546,"information, fcra, inaccurate, dispute, fair, request, verify, reporting_act, incorrect, investigation",0.658
-4,3940,0.1474,0.0725,0.1474,"bank, money, card, check, fund, transaction, chase, deposit, close, transfer",0.723
-5,2780,0.104,0.1281,0.104,"inquiry, fraudulent, remove, theft, authorize, victim_identity, identity_theft, hard_inquiry, ftc, result_identity",0.73
-1,2612,0.0977,0.097,0.0977,"card, company, score, open, send, contact, letter, fraud, police, apply",0.45
-7,2359,0.0883,0.0439,0.0883,"loan, mortgage, pay, car, vehicle, home, work, insurance, payment, property",0.676
-10,2023,0.0757,0.0649,0.0757,"balance, late_payment, update, open, payment, show, status, late, charge, billing_error",0.651
-3,1947,0.0728,0.0439,0.0728,"debt, collection, validation, debt_collector, owe, proof, provide, contract, request, allege_debt",0.688
-9,1891,0.0708,0.0378,0.0708,"payment, pay, loan, interest, charge, balance, fee, amount, due, late_fee",0.711
-0,1802,0.0674,0.1536,0.0674,"consumer, reporting_agency, section, information, usc, furnish, right_privacy, state, write_instruction, relate",0.742
-2,1758,0.0658,0.1106,0.0658,"issue, financial, matter, cause_significant, fraudulent, distress, inaccuracy, error, resolution, address",0.579
-6,1484,0.0555,0.0457,0.0555,"consumer, privacy, information, violation, usc, opt, act, law, right, code",0.648
+8,4124,0.1543,0.202,0.1543,"information, fcra, inaccurate, dispute, fair, request, verify, reporting_act, incorrect, item",0.649
+4,3938,0.1473,0.0725,0.1473,"bank, money, card, check, fund, transaction, chase, deposit, close, transfer",0.723
+5,2776,0.1039,0.128,0.1039,"inquiry, fraudulent, remove, theft, authorize, victim_identity, identity_theft, hard_inquiry, ftc, result_identity",0.73
+1,2615,0.0978,0.097,0.0978,"card, company, score, open, send, contact, letter, fraud, police, apply",0.45
+7,2368,0.0886,0.044,0.0886,"loan, mortgage, pay, car, vehicle, home, work, insurance, payment, property",0.676
+10,2025,0.0758,0.065,0.0758,"balance, late_payment, update, open, payment, show, status, late, charge, billing_error",0.651
+3,1949,0.0729,0.0439,0.0729,"debt, collection, validation, debt_collector, owe, proof, provide, contract, request, allege_debt",0.688
+9,1885,0.0705,0.0377,0.0705,"payment, pay, interest, loan, charge, balance, fee, amount, due, late_fee",0.711
+0,1808,0.0676,0.1537,0.0676,"consumer, reporting_agency, section, information, usc, furnish, right_privacy, state, write_instruction, relate",0.742
+2,1757,0.0657,0.1106,0.0657,"issue, financial, matter, cause_significant, fraudulent, distress, inaccuracy, error, resolution, address",0.579
+6,1482,0.0554,0.0455,0.0554,"consumer, privacy, information, violation, usc, opt, act, law, right, code",0.648
